@@ -99,9 +99,9 @@ export default function Schedule() {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto my-4  0 px-6 md:px-10">
+    <div id="schedule" className="max-w-4xl mx-auto my-4  0 px-6 md:px-10">
       <h2 className="text-4xl flex justify-center font-bold mb-8 text-white">
-        WHAT YOU'LL LEARN
+        WHAT YOU&apos; LL LEARN
       </h2>
       <div className="min-h-screen px-6 py-12  text-white font-sans">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -110,7 +110,7 @@ export default function Schedule() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ amount: 0.8 }}
+                viewport={{ amount: 0.8, once: true }}
                 key={i}
                 className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 hover:scale-[1.02] hover:bg-white/20 duration-300 shadow-lg"
               >

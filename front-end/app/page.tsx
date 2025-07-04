@@ -1,5 +1,5 @@
 "use client";
-import { Menu } from "lucide-react";
+import { Menu, Github, Linkedin, Instagram, Twitter } from "lucide-react";
 import amFoss from "@/public/amFoss.png";
 import { useEffect, useState } from "react";
 import amFoss2 from "@/public/amFOSS2.png";
@@ -8,14 +8,23 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Timer from "./components/timer";
 import Schedule from "./components/schedule";
-
+import Link from "next/link";
+import FAQgrid from "./components/faq";
 export default function WorkshopPage() {
-  const currentSeats=5
+  const currentSeats = 5;
   const [isScrolled, setIsScrolled] = useState(false);
   const [showNavBar, setShowNavBar] = useState(false);
   const [showSeats, setShowSeats] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobile, setIsMobile] = useState(true);
+  const [showSideMenu, setShowSideMenu] = useState(false);
+  useEffect(() => console.log(showSideMenu), [showSideMenu]);
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 780);
@@ -52,7 +61,7 @@ export default function WorkshopPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [currentSeats, lastScrollY]);
   return (
-    <div className="h-full bg-gradient-to-br from-[#4d0929] via-[#000000] to-[#3c1c3f]">
+    <div className="min-h-screen overflow-x-hidden bg-gradient-to-br from-[#4d0929] via-[#000000] to-[#3c1c3f]">
       <div
         className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-10 py-5 transition-colors duration-300 ${
           isScrolled ? "backdrop-blur-lg py-4" : "backdrop-blur-sm"
@@ -61,7 +70,7 @@ export default function WorkshopPage() {
         <Image
           src={amFoss}
           alt="amFoss Logo"
-          className="w-30 h-14 md:w-44 md:h-20 object-fit"
+          className="w-30 h-14 md:w-44 md:h-20 object-fill"
         />
         <div className="flex space-x-5 items-center">
           <AnimatePresence>
@@ -85,8 +94,21 @@ export default function WorkshopPage() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                 >
-                  <p>Register</p>
-                  <p>FAQ's</p>
+                  <Link href="/register">
+                    <p>Register</p>
+                  </Link>
+                  <p
+                    className="hover:cursor-pointer"
+                    onClick={() => scrollToSection("schedule")}
+                  >
+                    Schedule
+                  </p>
+                  <p
+                    className="hover:cursor-pointer"
+                    onClick={() => scrollToSection("faq")}
+                  >
+                    FAQ&apos;s
+                  </p>
                 </motion.div>
               ) : (
                 <motion.div
@@ -94,7 +116,9 @@ export default function WorkshopPage() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                 >
-                  <Menu />
+                  <button onClick={() => setShowSideMenu(!showSideMenu)}>
+                    <Menu />
+                  </button>
                 </motion.div>
               )
             ) : (
@@ -103,8 +127,8 @@ export default function WorkshopPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ y: 20, opacity: 0 }}
-                alt="amFoss Logo"
-                className="w-36 h-16 md:w-52 md:h-24 object-fit"
+                alt="amritaLogo"
+                className="w-36 h-16 md:w-52 md:h-24 object-fill"
               />
             )}
           </AnimatePresence>
@@ -150,10 +174,12 @@ export default function WorkshopPage() {
         </div>
 
         <div className="max-w-4xl mx-auto my-20 px-6 md:px-10">
-          <h2 className="text-4xl font-bold mb-8 text-white">OUR AIM</h2>
+          <p className="text-4xl font-bold mb-8 text-white">OUR AIM</p>
           <p className="text-lg leading-relaxed text-gray-300">
             The
-            <span className="text-orange-500 font-bold">amFOSS Workshop</span>
+            <span className="text-orange-500 font-bold mx-1">
+              amFOSS Workshop
+            </span>
             is designed to be the perfect starting point for students who are
             fresh out of school and curious about the world of computer science
             and software development. Whether you come from a technical
@@ -163,26 +189,118 @@ export default function WorkshopPage() {
           </p>
         </div>
 
-        <Schedule/>
+        <Schedule />
+        <div id="faq" className="max-w-4xl mx-auto my-20 px-6 md:px-10">
+          <p className="text-2xl md:text-4xl font-bold mb-8 text-white">FAQs</p>
+          <FAQgrid />
+        </div>
 
-        
-
-        <div className="max-w-4xl mx-auto my-20 px-6 md:px-10">
-          <h2 className="text-4xl font-bold mb-8 text-white">REGISTER TODAY</h2>
-          <p className="text-lg leading-relaxed text-gray-300 mb-8">
-            Don't miss this opportunity to kickstart your tech journey. Seats
-            are filling up fast, and we want to ensure you get the personalized
-            attention you deserve. Register now and take your first step into
-            the exciting world of technology!
+        <div className="max-w-4xl mx-auto my-20 px-6 md:px-10 flex flex-col items-center">
+          <p className="text-2xl md:text-4xl font-bold mb-8 text-white">
+            What Are You Waiting For
           </p>
           <div className="flex flex-col items-center">
             <Timer />
-            <button className="bg-gradient-to-r mt-10 from-orange-500 to-yellow-500 text-white px-10 py-4 rounded-full text-lg font-bold uppercase ">
-              SECURE YOUR SPOT NOW!
-            </button>
+            <motion.button
+              whileHover={{ y: -10 }}
+              whileTap={{ scale: 0.8 }}
+              className="bg-gradient-to-r mt-10 from-[#FF06E4] to-[#FF7B0A] text-white px-10 py-4 rounded-full text-lg font-bold uppercase "
+            >
+              REGISTER NOW
+            </motion.button>
           </div>
         </div>
-        
+        <div className="flex flex-col items-center">
+          <p className="text-2xl md:text-4xl font-bold mb-1 text-white">
+            Support Open Source With
+          </p>
+          <Image
+            src={amFoss2}
+            alt="Foss Logo"
+            className="w-48 h-24 object-fill"
+          />
+        </div>
+        <div className="ml-5 flex justify-center my-10 space-x-6">
+          <Link href="https://github.com/amfoss">
+            <Github className="w-10 h-10" />
+          </Link>
+          <Link href="https://www.linkedin.com/company/amfoss">
+            <Linkedin className="w-10 h-10" />
+          </Link>
+          <Link href="https://x.com/amfoss_in">
+            <Twitter className="w-10 h-10" />
+          </Link>
+          <Link href="https://www.instagram.com/amfoss.in">
+            <Instagram className="w-10 h-10" />
+          </Link>
+        </div>
+
+        <AnimatePresence>
+          {isMobile && showSideMenu && (
+            <>
+              <motion.div
+                className="fixed inset-0 bg-black/40 z-40"
+                onClick={() => setShowSideMenu(false)}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              />
+              <motion.div
+                className="fixed top-0 right-0 w-64 min-h-screen bg-[#111] text-white z-50 shadow-lg p-6"
+                initial={{ x: 300 }}
+                animate={{ x: 0 }}
+                exit={{ x: 300 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              >
+                <Image src={amFoss} alt="amFossLogo1" />
+                <div className="space-y-4 ml-5 text-xl font-medium">
+                  <div>
+                    <Link
+                      href="/register"
+                      onClick={() => setShowSideMenu(false)}
+                    >
+                      Register
+                    </Link>
+                  </div>
+                  <div>
+                    <p
+                      onClick={() => {
+                        scrollToSection("schedule");
+                        setShowSideMenu(false);
+                      }}
+                    >
+                      Schedule
+                    </p>
+                  </div>
+                  <div>
+                    <p
+                      onClick={() => {
+                        scrollToSection("faq");
+                        setShowSideMenu(false);
+                      }}
+                    >
+                      FAQs
+                    </p>
+                  </div>
+                </div>
+                <div className="absolute ml-5 flex space-x-5 bottom-10">
+                  <Link href="https://github.com/amfoss">
+                    <Github />
+                  </Link>
+                  <Link href="https://www.linkedin.com/company/amfoss">
+                    <Linkedin />
+                  </Link>
+                  <Link href="https://x.com/amfoss_in">
+                    <Twitter />
+                  </Link>
+                  <Link href="https://www.instagram.com/amfoss.in">
+                    <Instagram />
+                  </Link>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </motion.div>
     </div>
   );

@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-const TimeUnit = ({ value, label }: any) => {
+type TimeUnitProps = {
+  value: number | string;
+  label: string;
+};
+const TimeUnit = ({ value, label }: TimeUnitProps) => {
   return (
     <div>
       <div className="text-4xl font-bold">{value}</div>
@@ -42,10 +46,10 @@ export default function Timer() {
     return () => clearInterval(interval);
   }, [targetDate]);
   return (
-    <div className="flex">
+    <div>
       <div className="p-[3px] rounded-2xl bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500">
-        <div className="flex gap-6 px-8 py-4 bg-black rounded-2xl font-mono text-white text-center">
-          <TimeUnit value={timeLeft.days|| "00"} label="Days" />
+        <div className="flex gap-6 px-8 text-lg md:text-3xl py-4 bg-black rounded-2xl font-mono text-white text-center">
+          <TimeUnit value={timeLeft.days || "00"} label="Days" />
           <TimeUnit value={timeLeft.hours || "00"} label="Hours" />
           <TimeUnit value={timeLeft.minutes || "00"} label="Mins" />
           <TimeUnit value={timeLeft.seconds || "00"} label="Secs" />

@@ -4,3 +4,8 @@ export interface Sessions {
   category: string;
   topic: string;
 }
+
+export interface FAQ {
+  question: string;
+  answer: string;
+}
