@@ -1,7 +1,5 @@
 import { useSwipeable } from "react-swipeable";
-const SpeakerCard = () => {
-  return <>Hello</>;
-};
+
 export default function SpeakerCarousel() {
   const swiper = useSwipeable({
     onSwiped: (eventData) => console.log(eventData),
