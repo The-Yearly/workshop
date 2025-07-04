@@ -2,10 +2,8 @@ import { FAQ } from "../utils/types";
 import { useState } from "react";
 import { ArrowDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
 const FaqCard = ({ faq }: { faq: FAQ }) => {
   const [expandCard, setExpandCard] = useState(false);
-
   return (
     <AnimatePresence>
       <motion.div
@@ -46,7 +44,7 @@ const FaqCard = ({ faq }: { faq: FAQ }) => {
   );
 };
 
-export default function FAQgrid() {
+export default function FaqGrid() {
   const faqs: FAQ[] = [
     {
       question: "What is this workshop about?",
@@ -95,10 +93,15 @@ export default function FAQgrid() {
     },
   ];
   return (
-    <div className="grid grid-cols-1  gap-4">
-      {faqs.map((faq, i) => (
-        <FaqCard key={i} faq={faq} />
-      ))}
+    <div id="faq" className="max-w-4xl mx-auto my-20 px-6 md:px-10">
+      <p className="text-2xl md:text-4xl font-bold mb-8 text-white">
+        FAQ&apos;s
+      </p>
+      <div className="grid grid-cols-1  gap-4">
+        {faqs.map((faq, i) => (
+          <FaqCard key={i} faq={faq} />
+        ))}
+      </div>
     </div>
   );
 }
