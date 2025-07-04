@@ -164,13 +164,14 @@ export default function WorkshopPage() {
             left, register today!
           </motion.div>
 
-          <motion.button
+          <motion.a
+            href="/register"
             whileHover={{ y: -10 }}
             whileTap={{ scale: 0.8 }}
             className="bg-gradient-to-r mt-15 from-[#FF06E4] to-[#FF7B0A] text-white px-10 py-4 rounded-xl font-Lalezar text-lg md:text-xl font-bold uppercase"
           >
             REGISTER NOW!
-          </motion.button>
+          </motion.a>
         </div>
 
         <div className="max-w-4xl mx-auto my-20 px-6 md:px-10">
@@ -201,13 +202,14 @@ export default function WorkshopPage() {
           </p>
           <div className="flex flex-col items-center">
             <Timer />
-            <motion.button
+            <motion.a
+              href="/register"
               whileHover={{ y: -10 }}
               whileTap={{ scale: 0.8 }}
               className="bg-gradient-to-r mt-10 from-[#FF06E4] to-[#FF7B0A] text-white px-10 py-4 rounded-full text-lg font-bold uppercase "
             >
               REGISTER NOW
-            </motion.button>
+            </motion.a>
           </div>
         </div>
         <div className="flex flex-col items-center">
