@@ -46,7 +46,6 @@ const NavBarLink = (props: { label: string; section?: string }) => {
 export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
   const [showSideMenu, setShowSideMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showNavBar, setShowNavBar] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobile, setIsMobile] = useState(true);
   const [showSeats, setShowSeats] = useState(false);
@@ -71,7 +70,6 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
           const scrollY = window.scrollY;
           const scrollDelta = Math.abs(scrollY - lastScrollY);
           setIsScrolled(scrollY > 100);
-          setShowNavBar(scrollY > 200);
           setShowSeats(scrollY > 600);
           triggerSeats(scrollY > 600);
           if (scrollDelta > 50) {
@@ -89,7 +87,7 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-10 py-5 transition-colors duration-300 ${
+      className={`fixed text-white top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-10 py-5 transition-colors duration-300 ${
         isScrolled ? "backdrop-blur-lg py-4" : "backdrop-blur-sm"
       }`}
     >
@@ -105,14 +103,14 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10,transition:{duration:0.1} }}
-              className={`bg-gradient-to-r flex items-center justify-center w-42 md:w-32 h-10 font-Lalezar from-[#FF06E4] to-[#FF7B0A] px-4 py-2 rounded-full font-bold text-lg md:text-sm`}
+              className={`bg-gradient-to-r flex items-center justify-center w-42 md:w-32 h-10 font-Lalezar from-[#FF06E4] to-[#770297] px-4 py-2 rounded-full font-bold text-lg md:text-sm`}
             >
               Only {currentSeats} seats left!
             </motion.div>
           )}
         </AnimatePresence>
         <AnimatePresence>
-          {showNavBar ? (
+          {(
             !isMobile ? (
               <motion.div
                 className="flex space-x-9 text-2xl font-Outfit"
@@ -137,17 +135,7 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
                   <Menu />
                 </button>
               </motion.div>
-            )
-          ) : (
-            <motion.img
-              src={amritaLogo.src}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ y: 20, opacity: 0 }}
-              alt="amritaLogo"
-              className="w-36 h-16 md:w-52 md:h-24 object-fill"
-            />
-          )}
+            ))}
         </AnimatePresence>
       </div>
       <AnimatePresence>
