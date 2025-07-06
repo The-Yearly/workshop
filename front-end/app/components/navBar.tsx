@@ -1,8 +1,9 @@
-import { Menu, Github, Linkedin, Instagram, Twitter } from "lucide-react";
+import { Menu, Github, Linkedin, Instagram } from "lucide-react";
 import amFoss from "@/public/amFoss.png";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import X from "@/public/x-social-media-black-icon.png";
 import { motion, AnimatePresence } from "framer-motion";
 interface navBarProps {
   currentSeats: number;
@@ -24,7 +25,7 @@ const NavBarLink = (props: { label: string; section?: string }) => {
       onMouseEnter={() => setShowBorder(true)}
       onClick={() => scrollToSection(props.section || "")}
       onMouseLeave={() => setShowBorder(false)}
-      className="relative flex flex-col items-center"
+      className="relative flex flex-col items-center focus:outline-none"
     >
       <p className="hover:cursor-pointer z-10">{props.label}</p>
       <AnimatePresence>
@@ -116,7 +117,7 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
             >
-              <Link href="/register">
+              <Link className="focus:outline-none" href="/register">
                 <NavBarLink label="Register" />
               </Link>
               <NavBarLink label="Schedule" section="schedule" />
@@ -191,7 +192,7 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
                   </p>
                 </div>
               </div>
-              <div className="absolute ml-5 flex space-x-5 bottom-10">
+              <div className="absolute ml-5 flex items-center justify-center space-x-5 bottom-10">
                 <Link href="https://github.com/amfoss">
                   <Github />
                 </Link>
@@ -199,7 +200,7 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
                   <Linkedin />
                 </Link>
                 <Link href="https://x.com/amfoss_in">
-                  <Twitter />
+                  <Image src={X} className="w-5 h-5" alt="Twitter" />
                 </Link>
                 <Link href="https://www.instagram.com/amfoss.in">
                   <Instagram />

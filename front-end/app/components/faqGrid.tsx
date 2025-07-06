@@ -17,19 +17,12 @@ const FaqCard = ({ faq }: { faq: FAQ }) => {
           className="flex items-center justify-between cursor-pointer"
           onClick={() => setExpandCard(!expandCard)}
         >
-          <p
-            onClick={() => setExpandCard(!expandCard)}
-            className="font-semibold text-lg"
-          >
-            {faq.question}
-          </p>
+          <p className="font-semibold text-lg">{faq.question}</p>
           <motion.div
             animate={{ rotate: expandCard ? 180 : 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div onClick={() => setExpandCard(!expandCard)}>
-              <ArrowDown />
-            </div>
+            <ArrowDown />
           </motion.div>
         </div>
 
@@ -105,13 +98,12 @@ export default function FaqGrid() {
     },
   ];
   return (
-    <div
-      id="faq"
-      className="max-w-4xl mx-auto relative z-10 my-20 md:my-0 px-6 md:px-10"
-    >
-      <div className="mt-40 mb-10 w-fit">
-        <p className="text-4xl font-bold text-white">FAQs</p>
-        <div className="w-[80%] m-auto mt-1 h-1 bg-gradient-to-r  from-[#FF06E4] to-[#770297]"></div>
+    <div id="faq" className="max-w-4xl mx-auto my-20 md:my-0 px-6 md:px-10">
+      <div>
+        <div className="mb-8 w-fit">
+          <p className="text-4xl font-bold text-white">FAQs</p>
+          <div className="w-[80%] m-auto mt-1 h-1 bg-gradient-to-r  from-[#FF06E4] to-[#770297]"></div>
+        </div>
       </div>
       <div className="grid grid-cols-1  gap-4">
         {faqs.map((faq, i) => (
