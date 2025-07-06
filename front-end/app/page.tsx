@@ -6,6 +6,7 @@ import Schedule from "./components/ScheduleGrid";
 import FaqGrid from "./components/faqGrid";
 import NavBar from "./components/navBar";
 import Header from "./components/Header";
+import Image from "next/image";
 import Footer from "./components/Footer";
 import SwiperCarousel from "./components/speakerCarousel";
 export default function WorkshopPage() {
@@ -16,7 +17,14 @@ export default function WorkshopPage() {
   };
   return (
     <>
-    <div className="min-h-screen overflow-x-hidden bg-gradient-to-br from-[#4d0929] via-[#000000] to-[#3c1c3f]">
+    <div className="min-h-screen  bg-gradient-to-b from-[#202020] to-[#000] overflow-x-hidden">
+      <Image 
+        alt="Background" 
+        width={1200} 
+        height={1200} 
+        className="absolute z-0 left-0 top-0" 
+        src="/bg1.png"
+      />
       <NavBar currentSeats={currentSeats} triggerSeats={triggerSeats} />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -24,8 +32,16 @@ export default function WorkshopPage() {
         transition={{ duration: 1 }}
       >
         <Header currentSeats={currentSeats} showSeats={showSeats} />
+        <Image 
+          alt="Background" 
+          width={1200} 
+          height={1200} 
+          className="absolute z-0" 
+          src="/bg4.png"
+        />
         <Schedule />
         <SwiperCarousel/>
+        <Image alt="bg" width={1200} height={1200} className="absolute z-0 right-0" src="/bg3.png"/>
         <FaqGrid />
         <Footer />
       </motion.div>

@@ -44,14 +44,17 @@ const SpeakerCard=(props:{speaker:Speakers})=>{
 export default function SwiperCarousel() {
   return(
     <div id={"speakers"} className="h-92 max-w-4xl mx-auto my-10 px-6 md:px-10">
-        <p className="text-4xl font-bold text-white">SPEAKER&apos;S</p>
+      <div className="mb-8 w-fit">
+            <p className="text-4xl font-bold text-white">SPEAKER&apos;S</p>
+          <div className="w-[80%] m-auto mt-1 h-1 bg-gradient-to-r  from-[#FF06E4] to-[#770297]"></div>
+      </div>
       <Swiper
         modules={[Pagination, Autoplay,Navigation]}
         pagination={{ clickable: true}}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         loop={true}
         speed={700}
-        className="rounded-xl overflow-hidden"
+        className="rounded-xl text-white overflow-hidden"
       >
         {speakers.map((speaker,i) => (
           <SwiperSlide key={i}>

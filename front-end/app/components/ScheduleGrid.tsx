@@ -100,9 +100,10 @@ export default function Schedule() {
 
   return (
     <div id="schedule" className="max-w-4xl mx-auto my-4  0 px-6 md:px-10">
-      <h2 className="text-4xl flex font-bold text-white">
-        SCHEDULE
-      </h2>
+      <div className="mt-40 w-fit">
+          <p className="text-4xl font-bold text-white">SCHEDULE</p>
+          <div className="w-[80%] m-auto mt-1 h-1 bg-gradient-to-r  from-[#FF06E4] to-[#770297]"></div>
+      </div>
       <div className="min-h-screen py-12  text-white font-sans">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence>
