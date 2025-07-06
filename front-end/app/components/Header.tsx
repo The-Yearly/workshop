@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import amFoss2 from "@/public/amFOSS2.png";
-import Link from "next/link";
 import Image from "next/image";
 interface headerProps {
   showSeats: boolean;

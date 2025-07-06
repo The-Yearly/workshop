@@ -1,7 +1,6 @@
 import { Menu, Github, Linkedin, Instagram, Twitter } from "lucide-react";
 import amFoss from "@/public/amFoss.png";
 import { useEffect, useState } from "react";
-import amritaLogo from "@/public/amrita.png";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";

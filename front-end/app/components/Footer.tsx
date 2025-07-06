@@ -33,7 +33,7 @@ export default function Footer() {
           className="w-48 h-24 object-fill"
         />
         <p className="text-2xl md:text-4xl mb-4 font-bold mt-20 text-white">
-          We'll see you there!
+          We&apos;ll see you there!
         </p>
       </div>
       <div className="ml-5 text-white flex justify-center my-10 space-x-6">
