@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import amFoss2 from "@/public/amFOSS2.png";
+import Link from "next/link";
 import Image from "next/image";
 interface headerProps {
   showSeats: boolean;
@@ -29,33 +30,31 @@ export default function Header({ showSeats, currentSeats }: headerProps) {
           </div>
           left, register today!
         </motion.div>
-        <Image 
-          alt="Background" 
-          width={1200} 
-          height={1200} 
-          className="absolute z-0 right-0" 
+        <Image
+          alt="Background"
+          width={1200}
+          height={1200}
+          className="absolute z-0 right-0"
           src="/bg3.png"
         />
-          
+
         <motion.a
-          href="/register"
           whileHover={{ y: -10 }}
           whileTap={{ scale: 0.8 }}
-          className="bg-gradient-to-r mt-15  from-[#FF06E4] to-[#770297] text-white px-10 py-4 rounded-xl font-Lalezar text-lg md:text-xl font-bold uppercase"
+          href="/register"
+          className="bg-gradient-to-r mt-16 from-[#FF06E4] z-100 to-[#770297] text-white px-10 py-4 rounded-xl font-Lalezar text-lg md:text-xl font-bold uppercase hover:bg-amber-800"
         >
           REGISTER NOW!
         </motion.a>
       </div>
       <div className="max-w-4xl mx-auto my-20 px-6 md:px-10">
         <div className="mb-8 w-fit">
-            <p className="text-4xl font-bold text-white">OUR AIM</p>
-            <div className="w-[80%] m-auto mt-1 h-1 bg-gradient-to-r  from-[#FF06E4] to-[#770297]"></div>
+          <p className="text-4xl font-bold text-white">OUR AIM</p>
+          <div className="w-[80%] m-auto mt-1 h-1 bg-gradient-to-r  from-[#FF06E4] to-[#770297]"></div>
         </div>
         <p className="text-2xl font-bold leading-relaxed text-white">
           The
-          <span className="text-[#FF06E4] font-bold mx-1">
-            amFOSS Workshop
-          </span>
+          <span className="text-[#FF06E4] font-bold mx-1">amFOSS Workshop</span>
           is designed to be the perfect starting point for students who are
           fresh out of school and curious about the world of computer science
           and software development. Whether you come from a technical background

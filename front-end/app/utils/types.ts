@@ -10,8 +10,15 @@ export interface FAQ {
   answer: string;
 }
 
-export interface Speakers{
-  name:string,
-  image:string,
-  desc:string
+export interface Speakers {
+  name: string;
+  image: string;
+  desc: string;
+}
+
+export interface FormData {
+  email: string;
+  name: string;
+  roll: string;
+  checkBox: boolean;
 }

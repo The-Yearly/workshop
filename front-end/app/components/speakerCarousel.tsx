@@ -1,32 +1,36 @@
 "use client";
 
-import {Swiper,SwiperSlide} from "swiper/react";
-import { Navigation,Pagination,Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
 import { Speakers } from "../utils/types";
-import placeHolderImg from "@/public/image.png"
-import 'swiper/css/pagination';
-import 'swiper/css'
-const speakers:Speakers[]=[
-  {name:"Hridesh Mg",
-    image:"dd",
-    desc:"With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. "
+import placeHolderImg from "@/public/image.png";
+import "swiper/css/pagination";
+import "swiper/css";
+const speakers: Speakers[] = [
+  {
+    name: "Hridesh Mg",
+    image: "dd",
+    desc: "With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. ",
   },
-  {name:"Hridesh Mg",
-    image:"dd",
-    desc:"With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. "
+  {
+    name: "Hridesh Mg",
+    image: "dd",
+    desc: "With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. ",
   },
-  {name:"Hridesh Mg",
-    image:"dd",
-    desc:"With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. "
+  {
+    name: "Hridesh Mg",
+    image: "dd",
+    desc: "With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. ",
   },
-  {name:"Hridesh Mg",
-    image:"dd",
-    desc:"With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. "
-  }
-]
-const SpeakerCard=(props:{speaker:Speakers})=>{
-  return(
+  {
+    name: "Hridesh Mg",
+    image: "dd",
+    desc: "With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. ",
+  },
+];
+const SpeakerCard = (props: { speaker: Speakers }) => {
+  return (
     <div className="w-full h-auto py-10 flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
       <Image
         src={placeHolderImg}
@@ -35,33 +39,38 @@ const SpeakerCard=(props:{speaker:Speakers})=>{
       />
       <div className="text-center sm:text-left">
         <p className="font-Outfit text-2xl sm:text-4xl">{props.speaker.name}</p>
-        <p className="text-sm sm:text-base mt-2 max-w-sm">{props.speaker.desc}</p>
+        <p className="text-sm sm:text-base mt-2 max-w-sm">
+          {props.speaker.desc}
+        </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default function SwiperCarousel() {
-  return(
-    <div id={"speakers"} className="h-92 max-w-4xl mx-auto my-10 px-6 md:px-10">
+  return (
+    <div
+      id={"speakers"}
+      className="h-92 max-w-4xl z-10 relative mx-auto my-10 px-6 md:px-10"
+    >
       <div className="mb-8 w-fit">
-            <p className="text-4xl font-bold text-white">SPEAKER&apos;S</p>
-          <div className="w-[80%] m-auto mt-1 h-1 bg-gradient-to-r  from-[#FF06E4] to-[#770297]"></div>
+        <p className="text-4xl font-bold text-white">SPEAKER&apos;S</p>
+        <div className="w-[80%] m-auto mt-1 h-1 bg-gradient-to-r  from-[#FF06E4] to-[#770297]"></div>
       </div>
       <Swiper
-        modules={[Pagination, Autoplay,Navigation]}
-        pagination={{ clickable: true}}
+        modules={[Pagination, Autoplay, Navigation]}
+        pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         loop={true}
         speed={700}
         className="rounded-xl text-white overflow-hidden"
       >
-        {speakers.map((speaker,i) => (
+        {speakers.map((speaker, i) => (
           <SwiperSlide key={i}>
-            <SpeakerCard key={i} speaker={speaker}/>
+            <SpeakerCard key={i} speaker={speaker} />
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
-  )
+  );
 }

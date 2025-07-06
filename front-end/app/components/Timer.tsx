@@ -47,7 +47,7 @@ export default function Timer() {
   }, [targetDate]);
   return (
     <div>
-      <div className="p-[3px] rounded-2xl bg-gradient-to-r  from-[#FF06E4] to-[#770297]">
+      <div className="p-[3px] rounded-2xl bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500">
         <div className="flex gap-6 px-8 text-lg md:text-3xl py-4 bg-black rounded-2xl font-mono text-white text-center">
           <TimeUnit value={timeLeft.days || "00"} label="Days" />
           <TimeUnit value={timeLeft.hours || "00"} label="Hours" />

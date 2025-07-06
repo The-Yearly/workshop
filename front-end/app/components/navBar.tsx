@@ -14,7 +14,7 @@ const scrollToSection = (id: string) => {
   const element = document.getElementById(id);
   if (element) {
     const y = element.getBoundingClientRect().top + window.pageYOffset + -150;
-    window.scrollTo({ top: y, behavior: "smooth" })
+    window.scrollTo({ top: y, behavior: "smooth" });
   }
 };
 const NavBarLink = (props: { label: string; section?: string }) => {
@@ -102,7 +102,7 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10,transition:{duration:0.1} }}
+              exit={{ opacity: 0, y: 10, transition: { duration: 0.1 } }}
               className={`bg-gradient-to-r flex items-center justify-center w-42 md:w-32 h-10 font-Lalezar from-[#FF06E4] to-[#770297] px-4 py-2 rounded-full font-bold text-lg md:text-sm`}
             >
               Only {currentSeats} seats left!
@@ -110,32 +110,31 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
           )}
         </AnimatePresence>
         <AnimatePresence>
-          {(
-            !isMobile ? (
-              <motion.div
-                className="flex space-x-9 text-2xl font-Outfit"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-              >
-                <Link href="/register">
-                  <NavBarLink label="Register" />
-                </Link>
-                <NavBarLink label="Schedule" section="schedule" />
-                <NavBarLink label="Speakers" section="speakers"/>
-                <NavBarLink label="FAQ's" section="faq" />
-              </motion.div>
-            ) : (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-              >
-                <button onClick={() => setShowSideMenu(!showSideMenu)}>
-                  <Menu />
-                </button>
-              </motion.div>
-            ))}
+          {!isMobile ? (
+            <motion.div
+              className="flex space-x-9 text-2xl font-Outfit"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+            >
+              <Link href="/register">
+                <NavBarLink label="Register" />
+              </Link>
+              <NavBarLink label="Schedule" section="schedule" />
+              <NavBarLink label="Speakers" section="speakers" />
+              <NavBarLink label="FAQ's" section="faq" />
+            </motion.div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+            >
+              <button onClick={() => setShowSideMenu(!showSideMenu)}>
+                <Menu />
+              </button>
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
       <AnimatePresence>
