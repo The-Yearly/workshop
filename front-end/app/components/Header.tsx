@@ -13,7 +13,7 @@ export default function Header({ showSeats, currentSeats }: headerProps) {
         <h1 className="text-5xl md:text-9xl font-Lalezar mt-5 tracking-wider">
           WORKSHOP
         </h1>
-        <p className="text-xl md:text-5xl font-Lekton mt-4 text-gray-300 ">
+        <p className="text-3xl md:text-5xl font-Lekton mt-8 md:mt-4 text-gray-300 ">
           Your First Step Into Tech Starts Here.
         </p>
 

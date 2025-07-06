@@ -100,10 +100,10 @@ export default function Schedule() {
 
   return (
     <div id="schedule" className="max-w-4xl mx-auto my-4  0 px-6 md:px-10">
-      <h2 className="text-4xl flex justify-center font-bold mb-8 text-white">
-        WHAT YOU&apos; LL LEARN
+      <h2 className="text-4xl flex font-bold text-white">
+        SCHEDULE
       </h2>
-      <div className="min-h-screen px-6 py-12  text-white font-sans">
+      <div className="min-h-screen py-12  text-white font-sans">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence>
             {sessions.map((session, i) => (

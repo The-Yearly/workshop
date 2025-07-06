@@ -13,7 +13,8 @@ interface navBarProps {
 const scrollToSection = (id: string) => {
   const element = document.getElementById(id);
   if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
+    const y = element.getBoundingClientRect().top + window.pageYOffset + -150;
+    window.scrollTo({ top: y, behavior: "smooth" })
   }
 };
 const NavBarLink = (props: { label: string; section?: string }) => {
@@ -103,7 +104,7 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
+              exit={{ opacity: 0, y: 10,transition:{duration:0.1} }}
               className={`bg-gradient-to-r flex items-center justify-center w-42 md:w-32 h-10 font-Lalezar from-[#FF06E4] to-[#FF7B0A] px-4 py-2 rounded-full font-bold text-lg md:text-sm`}
             >
               Only {currentSeats} seats left!
@@ -114,7 +115,7 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
           {showNavBar ? (
             !isMobile ? (
               <motion.div
-                className="flex space-x-5 text-2xl font-Outfit"
+                className="flex space-x-9 text-2xl font-Outfit"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
@@ -123,6 +124,7 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
                   <NavBarLink label="Register" />
                 </Link>
                 <NavBarLink label="Schedule" section="schedule" />
+                <NavBarLink label="Speakers" section="speakers"/>
                 <NavBarLink label="FAQ's" section="faq" />
               </motion.div>
             ) : (
@@ -180,6 +182,16 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
                     }}
                   >
                     Schedule
+                  </p>
+                </div>
+                <div>
+                  <p
+                    onClick={() => {
+                      scrollToSection("speakers");
+                      setShowSideMenu(false);
+                    }}
+                  >
+                    Speakers
                   </p>
                 </div>
                 <div>

@@ -93,8 +93,8 @@ export default function FaqGrid() {
     },
   ];
   return (
-    <div id="faq" className="max-w-4xl mx-auto my-20 px-6 md:px-10">
-      <p className="text-2xl md:text-4xl font-bold mb-8 text-white">
+    <div id="faq" className="max-w-4xl mx-auto my-20 md:my-0 px-6 md:px-10">
+      <p className="text-4xl font-bold mb-8 text-white">
         FAQ&apos;s
       </p>
       <div className="grid grid-cols-1  gap-4">

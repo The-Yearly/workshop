@@ -9,3 +9,9 @@ export interface FAQ {
   question: string;
   answer: string;
 }
+
+export interface Speakers{
+  name:string,
+  image:string,
+  desc:string
+}
