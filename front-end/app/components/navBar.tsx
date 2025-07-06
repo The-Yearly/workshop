@@ -149,7 +149,7 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
               exit={{ opacity: 0 }}
             />
             <motion.div
-              className="fixed top-0 right-0 w-64 min-h-screen bg-[#111] text-white z-50 shadow-lg p-6"
+              className="fixed top-0 right-0 w-64 min-h-screen  bg-gradient-to-b from-[#71293e] via-[#202020] to-[#0e0e0e] text-white z-50 shadow-lg p-6"
               initial={{ x: 300 }}
               animate={{ x: 0 }}
               exit={{ x: 300 }}
