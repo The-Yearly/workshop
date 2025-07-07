@@ -20,5 +20,6 @@ export interface FormData {
   email: string;
   name: string;
   roll: string;
+  phone:string;
   checkBox: boolean;
 }

@@ -16,7 +16,7 @@ export default function WorkshopPage() {
   };
   return (
     <>
-      <div className="min-h-screen z-10 bg-gradient-to-b  from-[#202020] to-[#000] overflow-x-hidden">
+      <div className="min-h-screen z-10 bg-gradient-to-b text-white from-[#202020] to-[#000] overflow-x-hidden">
         <Image
           alt="Background"
           width={1200}
@@ -25,13 +25,6 @@ export default function WorkshopPage() {
           src="/bg1.png"
         />
         <NavBar currentSeats={currentSeats} triggerSeats={triggerSeats} />
-        <Image
-          alt="Background"
-          width={1200}
-          height={1200}
-          className="absolute z-0 right-0 pointer-events-none"
-          src="/bg3.png"
-        />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
