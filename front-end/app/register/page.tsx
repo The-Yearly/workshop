@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import axios from "axios";
+// import axios from "axios";
 
 export default function Component() {
   const [formData, setFormData] = useState<FormData>({
