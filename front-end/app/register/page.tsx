@@ -6,13 +6,14 @@ import { ToastContainer, toast } from "react-toastify";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios";
 
 export default function Component() {
   const [formData, setFormData] = useState<FormData>({
     email: "",
     name: "",
-    roll: "",
-    phone: "",
+    roll_no: "",
+    phone_number: "",
     checkBox: false,
   });
   const [isDisabled, setIsDisabled] = useState(true);
@@ -21,8 +22,8 @@ export default function Component() {
     setIsDisabled(
       !formData.name.trim() ||
         !formData.email.trim() ||
-        !formData.roll.trim() ||
-        !formData.phone.trim() ||
+        !formData.roll_no.trim() ||
+        !formData.phone_number.trim() ||
         !formData.checkBox,
     );
   }, [formData]);
@@ -55,9 +56,11 @@ export default function Component() {
 
   const validateForm = () => {
     const validEmail = isValidEmail(formData.email);
-    const validRoll = isValidRollNumber(formData.roll);
-    const validPhone = isValidPhone(formData.phone);
+    const validRoll = isValidRollNumber(formData.roll_no);
+    const validPhone = isValidPhone(formData.phone_number);
     if (formData.name !== "" && validEmail && validRoll && validPhone) {
+      // sendData()
+      console.log("SendData");
     } else {
       if (formData.name === "") toast.warn("Please Enter Your Name.");
       else if (!validEmail) toast.warn("Enter A Valid Email Id");
@@ -65,7 +68,10 @@ export default function Component() {
       else if (!validPhone) toast.warn("Enter A Valid Phone Number");
     }
   };
-
+  // const sendData=async()=>{
+  //   const res=await axios.post("http://127.0.0.1:5000/create_order/",formData)
+  //   console.log(res.data)
+  // }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#4d0929] via-[#000000] to-[#3c1c3f] relative px-6">
       <Image
@@ -124,9 +130,9 @@ export default function Component() {
               />
               <input
                 type="text"
-                name="roll"
+                name="roll_no"
                 placeholder="Admission Number"
-                value={formData.roll}
+                value={formData.roll_no}
                 onChange={changeValue}
                 className="w-full px-4 py-3 bg-black/30 border border-pink-400/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
               />
@@ -140,9 +146,9 @@ export default function Component() {
               />
               <input
                 type="tel"
-                name="phone"
+                name="phone_number"
                 placeholder="Phone Number"
-                value={formData.phone}
+                value={formData.phone_number}
                 onChange={changeValue}
                 maxLength={10}
                 className="w-full px-4 py-3 bg-black/30 border border-pink-400/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"

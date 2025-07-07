@@ -19,7 +19,7 @@ export interface Speakers {
 export interface FormData {
   email: string;
   name: string;
-  roll: string;
-  phone: string;
+  roll_no: string;
+  phone_number: string;
   checkBox: boolean;
 }
