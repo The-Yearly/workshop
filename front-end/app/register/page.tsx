@@ -123,7 +123,7 @@ export default function Component() {
               <input
                 type="email"
                 name="email"
-                placeholder="Email Address"
+                placeholder="Personal Email Address"
                 value={formData.email}
                 onChange={changeValue}
                 className="w-full px-4 py-3 bg-black/30 border border-pink-400/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
