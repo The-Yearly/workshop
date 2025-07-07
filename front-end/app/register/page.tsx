@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { FormData } from "../utils/types";
 import { ToastContainer, toast } from "react-toastify";
 import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Component() {
@@ -11,6 +12,7 @@ export default function Component() {
     email: "",
     name: "",
     roll: "",
+    phone: "",
     checkBox: false,
   });
   const [isDisabled, setIsDisabled] = useState(true);
@@ -56,6 +58,20 @@ export default function Component() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#4d0929] via-[#000000] to-[#3c1c3f] relative px-6">
+      <Image
+        alt="Background"
+        width={1200}
+        height={1200}
+        className="absolute z-0 top-0 left-0 pointer-events-none"
+        src="/bg1.png"
+      />
+      <Image
+        alt="Background"
+        width={1200}
+        height={1200}
+        className="absolute z-0 scale-y-[-1] bottom-0 right-0 pointer-events-none"
+        src="/bg2.png"
+      />
       <ToastContainer />
       <div className="absolute top-6 left-6 z-50">
         <Link
@@ -73,7 +89,7 @@ export default function Component() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="max-w-6xl mx-auto w-full"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 my-20 lg:grid-cols-2 gap-12 items-start">
           <div className="backdrop-blur-sm bg-white/5 p-8 rounded-2xl border border-gray-700 shadow-2xl shadow-pink-900/20">
             <div className="text-center mb-8">
               <motion.h1
@@ -112,7 +128,14 @@ export default function Component() {
                 onChange={changeValue}
                 className="w-full px-4 py-3 bg-black/30 border border-pink-400/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
               />
-
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={changeValue}
+                className="w-full px-4 py-3 bg-black/30 border border-pink-400/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
+              />
               <div className="flex items-start space-x-3 mt-6">
                 <input
                   type="checkbox"
