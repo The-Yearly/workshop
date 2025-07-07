@@ -22,6 +22,7 @@ export default function Component() {
       !formData.name.trim() ||
         !formData.email.trim() ||
         !formData.roll.trim() ||
+        !formData.phone.trim() ||
         !formData.checkBox,
     );
   }, [formData]);
@@ -33,6 +34,13 @@ export default function Component() {
     } else {
       setFormData({ ...formData, [name]: !formData.checkBox });
     }
+  };
+
+  const isValidPhone = (phone: string): boolean => {
+    console.log(phone);
+    const phoneRegex = /^[6-9]\d{9}$/;
+    console.log(phoneRegex.test(phone));
+    return phoneRegex.test(phone);
   };
 
   const isValidEmail = (email: string): boolean => {
@@ -48,11 +56,13 @@ export default function Component() {
   const validateForm = () => {
     const validEmail = isValidEmail(formData.email);
     const validRoll = isValidRollNumber(formData.roll);
-    if (formData.name !== "" && validEmail && validRoll) {
+    const validPhone = isValidPhone(formData.phone);
+    if (formData.name !== "" && validEmail && validRoll && validPhone) {
     } else {
-      if (formData.name === "") toast.warn("Please enter your name.");
-      else if (!validEmail) toast.warn("Enter Proper Email Id");
-      else if (!validRoll) toast.warn("Enter Proper Roll Number");
+      if (formData.name === "") toast.warn("Please Enter Your Name.");
+      else if (!validEmail) toast.warn("Enter A Valid Email Id");
+      else if (!validRoll) toast.warn("Enter A Valid Roll Number");
+      else if (!validPhone) toast.warn("Enter A Valid Phone Number");
     }
   };
 
@@ -134,6 +144,7 @@ export default function Component() {
                 placeholder="Phone Number"
                 value={formData.phone}
                 onChange={changeValue}
+                maxLength={10}
                 className="w-full px-4 py-3 bg-black/30 border border-pink-400/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
               />
               <div className="flex items-start space-x-3 mt-6">

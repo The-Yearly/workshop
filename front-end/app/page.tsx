@@ -24,6 +24,13 @@ export default function WorkshopPage() {
           className="absolute z-0 left-0 top-0 pointer-events-none"
           src="/bg1.png"
         />
+        <Image
+          alt="Background"
+          width={1200}
+          height={1200}
+          className="absolute z-0 right-0"
+          src="/bg3.png"
+        />
         <NavBar currentSeats={currentSeats} triggerSeats={triggerSeats} />
         <motion.div
           initial={{ opacity: 0, y: 20 }}

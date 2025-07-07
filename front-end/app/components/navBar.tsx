@@ -9,7 +9,12 @@ interface navBarProps {
   currentSeats: number;
   triggerSeats: (trigger: boolean) => void;
 }
-
+const sideNav = [
+  { label: "Register", href: "/register" },
+  { label: "Schedule", scrollTo: "schedule" },
+  { label: "Speakers", scrollTo: "speakers" },
+  { label: "FAQs", scrollTo: "faq" },
+];
 const scrollToSection = (id: string) => {
   const element = document.getElementById(id);
   if (element) {
@@ -155,43 +160,38 @@ export default function NavBar({ currentSeats, triggerSeats }: navBarProps) {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
               <Image src={amFoss} alt="amFossLogo1" />
-              <div className="space-y-4 ml-5 text-xl font-medium">
-                <div>
-                  <Link href="/register" onClick={() => setShowSideMenu(false)}>
-                    Register
-                  </Link>
-                </div>
-                <div>
-                  <p
-                    onClick={() => {
-                      scrollToSection("schedule");
-                      setShowSideMenu(false);
+              <ul className="ml-5 text-xl font-medium space-y-4">
+                {sideNav.map((item, index) => (
+                  <motion.li
+                    key={item.label}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      delay: index * 0.1 + 0.2,
+                      type: "spring",
+                      stiffness: 200,
                     }}
                   >
-                    Schedule
-                  </p>
-                </div>
-                <div>
-                  <p
-                    onClick={() => {
-                      scrollToSection("speakers");
-                      setShowSideMenu(false);
-                    }}
-                  >
-                    Speakers
-                  </p>
-                </div>
-                <div>
-                  <p
-                    onClick={() => {
-                      scrollToSection("faq");
-                      setShowSideMenu(false);
-                    }}
-                  >
-                    FAQs
-                  </p>
-                </div>
-              </div>
+                    {item.href ? (
+                      <Link
+                        href={item.href}
+                        onClick={() => setShowSideMenu(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <p
+                        onClick={() => {
+                          scrollToSection(item.scrollTo!);
+                          setShowSideMenu(false);
+                        }}
+                      >
+                        {item.label}
+                      </p>
+                    )}
+                  </motion.li>
+                ))}
+              </ul>
               <div className="absolute ml-5 flex items-center justify-center space-x-5 bottom-10">
                 <Link href="https://github.com/amfoss">
                   <Github />

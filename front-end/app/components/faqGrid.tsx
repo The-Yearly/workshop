@@ -69,7 +69,7 @@ export default function FaqGrid() {
     {
       question: "Is this workshop free?",
       answer:
-        "Yes! The workshop is completely free of cost. Just bring your curiosity and enthusiasm.",
+        "Not quite – it’s ₹1499! That gets you 14 days packed with hands-on learning, exciting projects, and a whole lot of fun. It’s an experience your future self will totally thank you for. 😎🚀",
     },
     {
       question: "Do I need to know how to code?",
