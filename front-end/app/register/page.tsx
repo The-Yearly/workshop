@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-// import axios from "axios";
+//  import axios from "axios";
 
 export default function Component() {
   const [formData, setFormData] = useState<FormData>({
@@ -23,8 +23,8 @@ export default function Component() {
       !formData.name.trim() ||
         !formData.email.trim() ||
         !formData.roll_no.trim() ||
-        !formData.phone_number.trim() ||
-        !formData.checkBox,
+        !formData.phone_number.trim()
+        // !formData.checkBox,
     );
   }, [formData]);
 
@@ -153,7 +153,7 @@ export default function Component() {
                 maxLength={10}
                 className="w-full px-4 py-3 bg-black/30 border border-pink-400/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
               />
-              <div className="flex items-start space-x-3 mt-6">
+              {/* <div className="flex items-start space-x-3 mt-6">
                 <input
                   type="checkbox"
                   id="acknowledgment"
@@ -170,7 +170,7 @@ export default function Component() {
                   participation does not grant me membership or free entry into
                   amFOSS
                 </label>
-              </div>
+              </div> */}
             </form>
           </div>
           <motion.div
@@ -191,14 +191,14 @@ export default function Component() {
                 <tbody className="text-gray-300">
                   <tr>
                     <td className="py-2">Seat x 1</td>
-                    <td className="py-2">₹1399</td>
-                    <td className="py-2">₹1399</td>
+                    <td className="py-2">₹1499</td>
+                    <td className="py-2">₹1499</td>
                   </tr>
-                  <tr>
+                  {/* <tr>
                     <td className="py-2">Taxes</td>
                     <td className="py-2">₹100</td>
                     <td className="py-2">₹100</td>
-                  </tr>
+                  </tr> */}
                 </tbody>
                 <tfoot>
                   <tr className="border-t border-gray-600">

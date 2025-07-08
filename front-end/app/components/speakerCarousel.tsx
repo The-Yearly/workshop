@@ -4,36 +4,37 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
 import { Speakers } from "../utils/types";
-import placeHolderImg from "@/public/image.png";
+// import placeHolderImg from "@/public/image.png";
 import "swiper/css/pagination";
 import "swiper/css";
+import Hridesh from "@/public/speakers/Hridesh.png"
 const speakers: Speakers[] = [
   {
     name: "Hridesh Mg",
-    image: "dd",
+    image: Hridesh,
     desc: "With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. ",
   },
-  {
-    name: "Hridesh Mg",
-    image: "dd",
-    desc: "With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. ",
-  },
-  {
-    name: "Hridesh Mg",
-    image: "dd",
-    desc: "With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. ",
-  },
-  {
-    name: "Hridesh Mg",
-    image: "dd",
-    desc: "With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. ",
-  },
+  // {
+  //   name: "Hridesh Mg",
+  //   image: "dd",
+  //   desc: "With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. ",
+  // },
+  // {
+  //   name: "Hridesh Mg",
+  //   image: "dd",
+  //   desc: "With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. ",
+  // },
+  // {
+  //   name: "Hridesh Mg",
+  //   image: "dd",
+  //   desc: "With hands-on experience in systems programming and open source development, Hridesh has contributed upstream patches to the Linux Kernel, developed tools in Rust, C, and Go, and is currently part of Google Summer of Code 2025 with CCExtractor. ",
+  // },
 ];
 const SpeakerCard = (props: { speaker: Speakers }) => {
   return (
     <div className="w-full h-auto py-10 flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
       <Image
-        src={placeHolderImg}
+        src={props.speaker.image}
         alt="Speaker Image"
         className="w-40 h-40 sm:w-52 sm:h-52 rounded-lg object-cover"
       />

@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface Sessions {
   no: number;
   day: number;
@@ -12,7 +14,7 @@ export interface FAQ {
 
 export interface Speakers {
   name: string;
-  image: string;
+  image: StaticImageData;
   desc: string;
 }
 
