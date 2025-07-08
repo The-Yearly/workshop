@@ -48,6 +48,10 @@ export default function Footer() {
           <Instagram className="w-10 h-10" />
         </Link>
       </div>
+      <div className="ml-5 flex justify-center my-10 space-x-6">
+        <Link className="text-pink-600 underline" href={"/terms"}>Terms & Condition</Link>
+        <Link className="text-pink-600 underline" href={"/privacy"}>Privacy Policy</Link>
+      </div>
     </>
   );
 }

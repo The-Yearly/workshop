@@ -96,6 +96,8 @@ export default function NavBar({ currentSeats, triggerSeats }: NavBarProps) {
     { label: "Schedule", section: "schedule" },
     { label: "Speakers", section: "speakers" },
     { label: "FAQ's", section: "faq" },
+    { label: "Refund", href: "/refund" },
+    { label: "Contact Us", href: "/contact" },
   ];
 
   useEffect(() => {

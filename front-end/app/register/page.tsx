@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FormData } from "../utils/types";
 import { ToastContainer, toast } from "react-toastify";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, HelpCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 // import axios from "axios";
@@ -15,16 +15,17 @@ export default function Component() {
     roll_no: "",
     phone_number: "",
     checkBox: false,
+    checkBox2: false,
   });
   const [isDisabled, setIsDisabled] = useState(true);
 
   useEffect(() => {
     setIsDisabled(
       !formData.name.trim() ||
-        !formData.email.trim() ||
-        !formData.roll_no.trim() ||
-        !formData.phone_number.trim() ||
-        !formData.checkBox,
+      !formData.email.trim() ||
+      !formData.roll_no.trim() ||
+      !formData.phone_number.trim() ||
+      !formData.checkBox,
     );
   }, [formData]);
 
@@ -99,6 +100,8 @@ export default function Component() {
         </Link>
       </div>
 
+      {/* Need Help Contact Link */}
+
       <motion.div
         initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}
@@ -171,6 +174,25 @@ export default function Component() {
                   amFOSS
                 </label>
               </div>
+              <div className="flex items-start space-x-3 mt-6">
+                <input
+                  type="checkbox"
+                  id="acknowledgment-2"
+                  name="checkBox2"
+                  checked={formData.checkBox2}
+                  onChange={changeValue}
+                  className="w-5 h-5 mt-0.5 accent-pink-500"
+                />
+                <label
+                  htmlFor="acknowledgment-2"
+                  className="text-sm text-gray-300 leading-relaxed"
+                >
+                  By signing up for this workshop, I acknowledge that I have read and agree to the
+                  <Link className="text-white hover:text-pink-400 underline" href={"/terms"}>Terms & Condition</Link> ,{" "}
+                    <Link className="text-white hover:text-pink-400 underline" href={"/refund"}>Refund Policy</Link> and{" "}
+                  <Link className="text-white hover:text-pink-400 underline" href={"/privacy"}>Privacy Policy</Link> of amFOSS.
+                </label>
+              </div>
             </form>
           </div>
           <motion.div
@@ -213,7 +235,6 @@ export default function Component() {
                 </tfoot>
               </table>
             </div>
-
             <motion.button
               whileTap={{ scale: 0.95 }}
               whileHover={{ scale: 1.05 }}
@@ -237,6 +258,12 @@ export default function Component() {
               />
               <span className="relative z-10">Register</span>
             </motion.button>
+                        <Link
+              href="/contact"
+              className="group flex items-center gap-2 text-white hover:text-pink-400 transition-colors">
+              <HelpCircle className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+              <span className="text-sm font-medium">Need help? Contact us</span>
+            </Link>
           </motion.div>
         </div>
       </motion.div>
