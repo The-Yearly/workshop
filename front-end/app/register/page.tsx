@@ -25,7 +25,8 @@ export default function Component() {
         !formData.email.trim() ||
         !formData.roll_no.trim() ||
         !formData.phone_number.trim()
-        // !formData.checkBox,    );
+        // !formData.checkBox,    
+        );
   }, [formData]);
 
   const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
