@@ -30,19 +30,19 @@ export default function RefundPolicyPage() {
             </h1>
             <div className="flex items-center justify-center gap-2 text-gray-400">
               <Calendar className="w-4 h-4" />
-              <span className="text-sm">Last updated on: 08-07-2025</span>
+              <span className="text-sm">Last Updated on:03-07-2025 14:20:49</span>
             </div>
           </div>
 
           {/* Content */}
           <div className="text-center">
             <p className="text-gray-300 leading-relaxed mb-8 text-lg">
-              <strong className="text-white">amFOSS</strong> believes in helping its customers as far as possible
+              <strong className="text-white">HRIDESH MATTAKATHARA GOPAKUMAR </strong> believes in helping its customers as far as possible
             </p>
             
             <div className="text-left max-w-3xl mx-auto">
               <p className="text-gray-300 leading-relaxed">
-                • In case of any Refunds approved by <strong className="text-white">amFOSS</strong>, it'll take 3-5 days for the refund to be credited to the end customer to the original payment methods.
+                • In case of any Refunds approved by <strong className="text-white">HRIDESH MATTAKATHARA GOPAKUMAR</strong>, it'll take 3-5 days for the refund to be credited to the end customer to the original payment methods.
               </p>
             </div>
           </div>

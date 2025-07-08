@@ -30,7 +30,7 @@ export default function RefundPolicyPage() {
             </h1>
             <div className="flex items-center justify-center gap-2 text-gray-400">
               <Calendar className="w-4 h-4" />
-              <span className="text-sm">Last updated on: 08-07-2025</span>
+              <span className="text-sm">Last updated on: 03-07-2025 14:17:40</span>
             </div>
           </div>
 
