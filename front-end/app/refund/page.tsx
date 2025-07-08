@@ -42,7 +42,7 @@ export default function RefundPolicyPage() {
             
             <div className="text-left max-w-3xl mx-auto">
               <p className="text-gray-300 leading-relaxed">
-                • In case of any Refunds approved by <strong className="text-white">HRIDESH MATTAKATHARA GOPAKUMAR</strong>, it'll take 3-5 days for the refund to be credited to the end customer to the original payment methods.
+                • In case of any Refunds approved by <strong className="text-white">HRIDESH MATTAKATHARA GOPAKUMAR</strong>, it&apos;ll take 3-5 days for the refund to be credited to the end customer to the original payment methods.
               </p>
             </div>
           </div>
