@@ -96,7 +96,7 @@ export default function ContactPage() {
           {/* Additional Info */}
           <div className="mt-8 text-center">
             <p className="text-gray-400 text-sm">
-              We're here to help! Feel free to reach out through any of the above channels.
+              We&apos;re here to help! Feel free to reach out through any of the above channels.
             </p>
           </div>
         </div>

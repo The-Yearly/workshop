@@ -24,16 +24,18 @@ export default function Component() {
       !formData.name.trim() ||
         !formData.email.trim() ||
         !formData.roll_no.trim() ||
-        !formData.phone_number.trim()
-        // !formData.checkBox,    );
+        !formData.phone_number.trim()||
+        !formData.checkBox2
+        // !formData.checkBox,    
+        );
   }, [formData]);
 
   const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    if (name !== "checkBox") {
+    if (!name.includes("checkBox")) {
       setFormData({ ...formData, [name]: value });
     } else {
-      setFormData({ ...formData, [name]: !formData.checkBox });
+      setFormData({ ...formData, [name]: !formData[name as keyof FormData] });
     }
   };
 
@@ -99,7 +101,6 @@ export default function Component() {
         </Link>
       </div>
 
-      {/* Need Help Contact Link */}
 
       <motion.div
         initial={{ opacity: 0, y: 80 }}
@@ -158,7 +159,6 @@ export default function Component() {
               {/* <div className="flex items-start space-x-3 mt-6">
                 <input
                   type="checkbox"
-                  id="acknowledgment"
                   name="checkBox"
                   checked={formData.checkBox}
                   onChange={changeValue}
@@ -172,11 +172,10 @@ export default function Component() {
                   participation does not grant me membership or free entry into
                   amFOSS
                 </label>
-              </div>
+              </div> */}
               <div className="flex items-start space-x-3 mt-6">
                 <input
                   type="checkbox"
-                  id="acknowledgment-2"
                   name="checkBox2"
                   checked={formData.checkBox2}
                   onChange={changeValue}
@@ -192,7 +191,7 @@ export default function Component() {
                   <Link className="text-white hover:text-pink-400 underline" href={"/privacy"}>Privacy Policy</Link> of amFOSS.
                 </label>
               </div>
-              </div> */}
+
             </form>
           </div>
           <motion.div

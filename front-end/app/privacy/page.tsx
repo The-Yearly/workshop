@@ -30,7 +30,7 @@ export default function RefundPolicyPage() {
             </h1>
             <div className="flex items-center justify-center gap-2 text-gray-400">
               <Calendar className="w-4 h-4" />
-              <span className="text-sm">Last updated on: 08-07-2025</span>
+              <span className="text-sm">Last Updated: 03-07-2025 14:17:40</span>
             </div>
           </div>
 
@@ -40,11 +40,11 @@ export default function RefundPolicyPage() {
               <section className="space-y-6"></section>
                 <h2 className="text-xl font-semibold text-white mb-2">Introduction</h2>
                 <p className="text-gray-300 leading-relaxed">
-                  This privacy policy sets out how HRIDESH MATTAKATHARA GOPAKUMAR uses and protects any information that you give when you use this website.
+                  This privacy policy sets out how HRIDESH MATTAKATHARA GOPAKUMAR uses and protects any information that you give HRIDESH MATTAKATHARA GOPAKUMAR when you use this website.
                   <br /><br />
                   HRIDESH MATTAKATHARA GOPAKUMAR is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.
                   <br /><br />
-                  We may change this policy from time to time by updating this page. You should check this page periodically to ensure that you are happy with any changes.
+                  HRIDESH MATTAKATHARA GOPAKUMAR may change this policy from time to time by updating this page. You should check this page from time to time to ensure that you are happy with any changes.
                 </p>
 
                 <h2 className="text-xl font-semibold text-white mb-2">What We Collect</h2>
@@ -80,7 +80,7 @@ export default function RefundPolicyPage() {
 
                 <h2 className="text-xl font-semibold text-white mb-2">How We Use Cookies</h2>
                 <p className="text-gray-300 leading-relaxed">
-                  A cookie is a small file which asks permission to be placed on your computer's hard drive. Once you agree, the file is added and the cookie helps analyse web traffic or lets you know when you visit a particular site. Cookies allow web applications to respond to you as an individual. The web application can tailor its operations to your needs, likes and dislikes by gathering and remembering information about your preferences.
+                  A cookie is a small file which asks permission to be placed on your computer&apos;s hard drive. Once you agree, the file is added and the cookie helps analyse web traffic or lets you know when you visit a particular site. Cookies allow web applications to respond to you as an individual. The web application can tailor its operations to your needs, likes and dislikes by gathering and remembering information about your preferences.
                   <br /><br />
                   We use traffic log cookies to identify which pages are being used. This helps us analyse data about webpage traffic and improve our website in order to tailor it to customer needs. We only use this information for statistical analysis purposes and then the data is removed from the system.
                   <br /><br />
