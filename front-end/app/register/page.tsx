@@ -63,7 +63,7 @@ export default function Component() {
     const validRoll = isValidRollNumber(formData.roll_no);
     const validPhone = isValidPhone(formData.phone_number);
     if (formData.name !== "" && validEmail && validRoll && validPhone) {
-      sendData()
+      // sendData()
       console.log("SendData");
     } else {
       if (formData.name === "") toast.warn("Please Enter Your Name.");
@@ -74,23 +74,23 @@ export default function Component() {
   };
 
 
-  const sendData = async () => {
-   try {
-      const res = await axios.post("http://127.0.0.1:5000/create_order/", formData);
-     if (res.status === 200) {
-        localStorage.setItem("orderId", res.data.orderId);
-        window.location.href = res.data.redirectUrl;
-      } else {
-       setError(res.data.error || "An error occurred while processing your request.");
-     }
-   } catch (error: any) {
-     setError(
-       error?.response?.data?.error ||
-         error?.message ||
-         "An error occurred while processing your request."
-     );
-   }
- }
+//   const sendData = async () => {
+//    try {
+//       const res = await axios.post("http://127.0.0.1:5000/create_order/", formData);
+//      if (res.status === 200) {
+//         localStorage.setItem("orderId", res.data.orderId);
+//         window.location.href = res.data.redirectUrl;
+//       } else {
+//        setError(res.data.error || "An error occurred while processing your request.");
+//      }
+//    } catch (error: any) {
+//      setError(
+//        error?.response?.data?.error ||
+//          error?.message ||
+//          "An error occurred while processing your request."
+//      );
+//    }
+//  }
   
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#4d0929] via-[#000000] to-[#3c1c3f] relative px-6">

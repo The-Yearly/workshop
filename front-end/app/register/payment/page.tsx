@@ -10,28 +10,25 @@ export default function PaymentScreen() {
     const [PaymentSucess, setPaymentSucess] = useState(false);
     const [TransactionId, setTransactionId] = useState("");
 
-    useEffect(() => {
-        const interval = setInterval(async () => {
-            const res = await axios.get(
-                "http://127.0.0.1:5000/payment-confirmation/" + localStorage.getItem("orderId")
-            );
-            if (res.data.success) {
-                setIsProcessing(false);
-                clearInterval(interval);
-                setTransactionId(res.data.transactionId);
-                setPaymentSucess(true);
-            } else if (!res.data.success) {
-                setIsProcessing(false);
-                clearInterval(interval);
-                setTransactionId(res.data.transactionId);
-                setPaymentSucess(false);
-            } else {
-                console.log("Still processing:", res.data.state);
-            }
-        }, 2000);
-
-        return () => clearInterval(interval);
-    }, []);
+    // useEffect(() => {
+    //     async function fetchPaymentStatus() {
+    //         const res = await axios.get(
+    //             "http://127.0.0.1:5000/payment-confirmation/" + localStorage.getItem("orderId")
+    //         );
+    //         if (res.data.success) {
+    //             setIsProcessing(false);
+    //             setTransactionId(res.data.transactionId);
+    //             setPaymentSucess(true);
+    //         } else if (!res.data.success) {
+    //             setIsProcessing(false);
+    //             setTransactionId(res.data.transactionId);
+    //             setPaymentSucess(false);
+    //         } else {
+    //             console.log("Still processing:", res.data.state);
+    //         }
+    //     }
+    //     fetchPaymentStatus();
+    // }, []);
 
     const orderDetails = {
         transId: TransactionId || "N/A",
